@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 7 11 22;
+  --surface: 13 18 32;
+  --elevated: 19 26 44;
+  --border: 39 49 74;
+  --fg: 232 238 251;
+  --muted: 148 158 184;
+  --cyan-500: 0 212 255;
+  --amber-500: 255 176 32;
+  --danger-500: 255 64 96;
+  --success-500: 56 220 130;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+}
+
+/* Base focus styles for interactive elements as per accessibility requirement */
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--bg)), 0 0 0 4px rgb(var(--cyan-500));
+}
